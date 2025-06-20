@@ -11,32 +11,38 @@ export default function Home() {
   const [refreshFeed, setRefreshFeed] = useState(0);
   if (loading)
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-100">
-        <div className="text-lg font-semibold text-gray-600 animate-pulse">
+      <div className="flex items-center justify-center min-h-screen bg-[#F7F9F9] dark:bg-black">
+        <div className="text-lg font-semibold text-gray-600 dark:text-gray-300 animate-pulse">
           Loading...
         </div>
       </div>
     );
   if (!session)
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-100">
+      <div className="flex items-center justify-center min-h-screen bg-[#F7F9F9] dark:bg-black">
         <AuthForm />
       </div>
     );
   return (
-    <main className="flex flex-col items-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 py-10 px-2">
-      <LogoutButton />
-      <div className="w-full max-w-md mb-8 flex flex-col items-center">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-400 to-purple-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg mb-2">
-          {session.user.email ? session.user.email[0].toUpperCase() : "U"}
+    <div className="w-full max-w-xl mx-auto flex flex-col gap-4 pt-6 pb-24">
+      <div className="flex items-center justify-between mb-2 px-2">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-400 to-[#1D9BF0] flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+            {session.user.email ? session.user.email[0].toUpperCase() : "U"}
+          </div>
+          <div>
+            <div className="text-lg font-bold text-gray-800 dark:text-white">
+              Welcome,
+            </div>
+            <div className="text-sm text-gray-500 dark:text-gray-300">
+              {session.user.email || "User"}
+            </div>
+          </div>
         </div>
-        <div className="text-2xl font-bold mb-1 text-gray-800">Welcome,</div>
-        <div className="text-lg text-gray-600 mb-4">
-          {session.user.email || "User"}
-        </div>
+        <LogoutButton />
       </div>
       <TweetForm onTweet={() => setRefreshFeed((r) => r + 1)} />
       <Feed refresh={refreshFeed} />
-    </main>
+    </div>
   );
 }
