@@ -1,6 +1,6 @@
-# Chat App MVP
+# Twitter Clone
 
-This is a Next.js (TypeScript) chat app MVP using Supabase for authentication and database, and Tailwind CSS for styling.
+This is a Next.js (TypeScript) Twitter Clone using Supabase for authentication and database, and Tailwind CSS for styling.
 
 ## Features
 - User signup, login, logout (Supabase Auth)
