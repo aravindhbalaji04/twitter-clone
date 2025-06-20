@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import Link from "next/link";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export default function RootLayout({
             {/* Sidebar */}
             <aside className="hidden md:flex flex-col w-64 px-4 py-8 border-r border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-[#16181C] gap-2 sticky top-0 h-screen">
               <div className="mb-8 flex justify-center">
-                <img src="/logo.png" alt="App Logo" className="w-12 h-12 object-contain" />
+                <span className="text-4xl font-black text-[#1D9BF0] dark:text-white select-none">X</span>
               </div>
               <nav className="flex flex-col gap-2 text-lg font-semibold">
                 <Link href="/" className="hover:bg-[#E8F5FE] dark:hover:bg-[#222] rounded px-3 py-2 transition">Home</Link>
