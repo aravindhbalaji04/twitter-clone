@@ -24,15 +24,15 @@ export default function AuthForm() {
   };
 
   return (
-    <div className="max-w-sm mx-auto mt-10 p-6 bg-white rounded shadow">
-      <h2 className="text-2xl font-bold mb-4 text-center">{isLogin ? "Login" : "Sign Up"}</h2>
-      <form onSubmit={handleAuth} className="space-y-4">
+    <div className="max-w-sm w-full mx-auto mt-10 p-8 bg-white/90 rounded-2xl shadow-2xl border border-blue-100 backdrop-blur-md">
+      <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-700 tracking-tight drop-shadow">{isLogin ? "Login" : "Sign Up"}</h2>
+      <form onSubmit={handleAuth} className="space-y-5">
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="w-full px-3 py-2 border rounded"
+          className="w-full px-4 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none transition"
           required
         />
         <input
@@ -40,20 +40,20 @@ export default function AuthForm() {
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className="w-full px-3 py-2 border rounded"
+          className="w-full px-4 py-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none transition"
           required
         />
-        {error && <div className="text-red-500 text-sm">{error}</div>}
+        {error && <div className="text-red-500 text-sm text-center font-medium">{error}</div>}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-lg font-bold shadow hover:from-blue-600 hover:to-purple-600 transition disabled:opacity-60"
           disabled={loading}
         >
           {loading ? "Loading..." : isLogin ? "Login" : "Sign Up"}
         </button>
       </form>
       <button
-        className="mt-4 text-blue-600 underline w-full"
+        className="mt-6 text-blue-600 hover:text-purple-600 underline w-full font-semibold transition"
         onClick={() => setIsLogin(!isLogin)}
       >
         {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}

@@ -54,20 +54,20 @@ export default function TweetForm({ onTweet }: { onTweet?: () => void }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow w-full max-w-md mb-6">
+    <form onSubmit={handleSubmit} className="bg-white/90 p-6 rounded-2xl shadow-xl w-full max-w-md mb-8 border border-blue-100 backdrop-blur-md flex flex-col gap-3">
       <textarea
-        className="w-full border rounded p-2 mb-2"
+        className="w-full border border-blue-200 rounded-lg p-3 resize-none focus:ring-2 focus:ring-blue-400 outline-none transition text-base min-h-[70px]"
         placeholder="What's happening?"
         value={text}
         onChange={e => setText(e.target.value)}
         required
         rows={3}
       />
-      <input type="file" accept="image/*" onChange={handleImageChange} className="mb-2" />
-      {error && <div className="text-red-500 text-sm mb-2">{error}</div>}
+      <input type="file" accept="image/*" onChange={handleImageChange} className="mb-2 text-sm" />
+      {error && <div className="text-red-500 text-sm mb-2 text-center font-medium">{error}</div>}
       <button
         type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-lg font-bold shadow hover:from-blue-600 hover:to-purple-600 transition disabled:opacity-60"
         disabled={loading}
       >
         {loading ? "Posting..." : "Tweet"}
