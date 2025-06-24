@@ -24,7 +24,7 @@ export default function TweetForm({ onTweet }: { onTweet?: () => void }) {
     if (image) {
       const fileExt = image.name.split(".").pop();
       const fileName = `${session?.user.id}-${Date.now()}.${fileExt}`;
-      const { data, error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from("tweet-images")
         .upload(fileName, image);
       if (uploadError) {
